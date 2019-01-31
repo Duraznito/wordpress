@@ -1,0 +1,131 @@
+
+<?php get_header(); ?>
+
+<!DOCTYPE html>
+<HTML>
+<BODY>
+
+<form method="post" action="single.php">
+
+<div id="primary" class="content-area small-12">
+		
+		<div id="agendar-cita" class="row expanded">
+			<div class="medium-6 columns" style="padding: 0;">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/subidas/agenda-cita.png" width="100%">
+			</div>
+
+
+			<div class="medium-6 columns" style="padding-top: 6.5rem;">
+				
+				<div class="form-container small-12 medium-10 small-centered columns">
+					<div class="row expanded">
+						<div class="medium-12 columns">
+							<h1>
+								"Casas para querer y vivir toda la vida" 
+							</h1>
+							<br>
+							<p>
+								Por favor llena el siguiente formulario para ponernos en contacto y agendar una visita guiada a nuestras casas muestra.
+							</p>
+						</div>
+
+
+                        <div class="medium-12 columns">
+							<input type="hidden" name="activo" value="enviar" />
+						</div>
+
+
+						<div class="medium-12 columns">
+							<label class="field">Nombre <span>*</span></label>
+							<input type="text" name="txtNombre" required=""/>
+						</div>
+
+						<div class="medium-12 columns">
+							<label class="field">Apellidos <span>*</span></label>
+							<input type="text" name="txtApellido" required=""/>
+						</div>
+
+						<div class="medium-12 columns">
+							<label class="field">Correo <span>*</span></label>
+							<input type="email" name="txtcorreo" required=""/>
+						</div>
+
+						<div class="medium-12 columns">
+							<label class="field">Teléfono <span>*</span></label>
+							<input type="tel" name="txtcel" required=""/>
+						</div>
+
+						<div class="small-12 columns">
+							<label class="field">Seleccione un Dessarrollo <span>*</span></label>
+							<select id = "DropDown1" name="medic_id" class="field" required="">
+						<option value=""> Seleccione </option>
+						      <option value="TP Bugambilias el Refigio, Qro.">TP Bugambilias el Refigio, Qro.</option>
+						      <option value="TP Gran Reserva Antea, Qro.">TP Gran Reserva Antea, Qro.</option>
+						      <option value="TP Juriquilla, Qro.">TP Juriquilla, Qro.</option>
+						      <option value="TP San Miguel de allende Gto.">TP San Miguel de Allende, Gto.</option>
+						      <option value="Samare Zibatá, Qro.">Samare Zibatá, Qro.</option>
+						  </select>
+						</div>
+
+						<div class="medium-12 columns">
+						  <label class="field">Selecciona la fecha deseada:<span>*</span></label>
+						  <input  onclick="" style="width:180px"  type="date" name="txtfecha"  step="" min="<?php echo date("Y-m-d");?>" required="" value="<?php echo date("Y-m-d");?>">
+						</div>
+
+						   <tr>
+						 	<div class="small-12 columns">
+							<label class="field">Seleccione una Hora de Día <span>*</span></label>
+							<select id = "DropDown1" name="txthora" class="field" required="">
+						<option value=""> hr-min</option>
+						      <option value="09:00 hr">09:00 hr</option>
+						      <option value="09:30 hr">09:30 hr</option>
+						      <option value="10:00 hr">10:00 hr</option>
+						      <option value="10:30 hr">10:30 hr</option>
+						      <option value="11:00 hr">11:00 hr</option>
+						      <option value="11:30 hr">11:30 hr</option>
+						      <option value="12:00 hr">12:00 hr</option>
+						      <option value="12:30 hr">12:30 hr</option>
+						      <option value="13:00 hr">13:00 hr</option>
+						      <option value="13:30 hr">13:30 hr</option>
+						      <option value="14:00 hr">14:00 hr</option>
+						      <option value="14:30 hr">14:30 hr</option>
+						      <option value="15:00 hr">15:00 hr</option>
+						      <option value="15:30 hr">15:30 hr</option>
+						      <option value="16:00 hr">16:00 hr</option>
+						      <option value="16:30 hr">16:30 hr</option>
+						      <option value="17:00 hr">17:00 hr</option>
+						      <option value="17:30 hr">17:30 hr</option>
+						      <option value="18:00 hr">18:00 hr</option>
+						      <option value="18:30 hr">18:30 hr</option>
+						      <option value="19:00 hr">19:00 hr</option>
+						  </select>
+						</div>
+				         </tr>
+                         <tr>
+						 	<div class="small-10 medium-5 small-centered columns" style="text-align: ">
+					           <td><input class="button" type="submit" value="Enviar" /></td>
+					           <td><input class="button" type="reset"  value="Borrar"/></td>
+					        <td>&nbsp;</td>
+					        </div>
+				         </tr>	
+
+						
+						<div class="feedback callout text-center"></div>
+
+					</div>
+
+					<div class="medium-12 columns"> <label class="field"> Nota;<span> *por favor, llena todos los campos obligatorios.</span></label> </div>
+				</div>
+			</div>
+
+		</div>
+</div>
+
+</form>
+
+
+</BODY>
+</HTML>
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>
