@@ -1,0 +1,148 @@
+<?php
+// recibimos las variables por post
+$nombre=$_POST['txtNombre'];
+$apellido=$_POST['txtApellido'];
+$para=$_POST['txtcorreo'];
+$edad=$_POST['txtcel'];
+$fecha=$_POST['txtfecha'];
+$hora=$_POST['txthora'];
+$zona=$_POST['medic_id'];
+$en=$_POST['activo'];
+
+$urld=$_POST['desarrollospage'];
+$Teléfono1=$_POST['txttel'];
+
+
+// configuramos la cabecera que llevara el correo
+$asunto    = 'Agendo cita; '. $nombre." ". $apellido;
+$cabeceras = 'From: Vialli.mx'. "\r\n" .
+             'Reply-To: ' .$para. "\r\n" .
+             'X-Mailer: PHP/' . phpversion();
+$mensaje =  " Agendo cita: ".$nombre ." ".$apellido."\n con fecha de; ". $fecha." a las ; ".$hora ."hrs "."\n Su correo es; ". $para."\n Numero celular; ".$edad ."\n La zona de interes es; ". $zona;
+ 
+  
+if($en == "enviar")
+{
+
+	if(mail("vialli.mexico@gmail.com", $asunto, $mensaje, $cabeceras)) {
+	   	?>
+			
+			<!DOCTYPE html>
+			<html>
+			      <Script languaje="JavaScript">
+			         location = "http://vialli.mx/new_site/wp-content/themes/vialli/thankyou-main.php"
+			      </Script>
+			</html>
+
+			<?php
+	} else {
+	  echo "error ".$nombre." ".$apellido;
+	}
+}else{
+echo "Dmm-@otulook.es";
+}
+
+
+
+//solicitud de informacion de los desarrollos 
+// configuramos la cabecera que llevara el correo de los dessarrollos
+$asunto    = 'solicitud de informacion de los desarrollos ; '. $nombre." ". $apellido;
+$cabeceras = 'From: Vialli.mx'. "\r\n" .
+             'Reply-To: ' .$para. "\r\n" .
+             'X-Mailer: PHP/' . phpversion();
+$mensaje =  " Solicito información : ".$nombre ." "."\n Correo; " .$para."\n Numero celular; ".$Teléfono1."\n Mensaje; ".$edad ."\n Fuente; http://vialli.mx/desarrollos/". $urld;
+
+if($en == "enviar2")
+{
+
+	if(mail("vialli.mexico@gmail.com", $asunto, $mensaje, $cabeceras)) {
+	   	?>
+			
+			<!DOCTYPE html>
+			<html>
+			      <Script languaje="JavaScript">
+			         location = "http://vialli.mx/new_site/wp-content/themes/vialli/thankyou-main.php"
+			      </Script>
+			</html>
+
+			<?php
+	} else {
+	  echo "error ".$nombre." ".$apellido;
+	}
+}else{
+echo "Dmm-@otulook.es";
+}
+
+
+
+
+?>
+
+
+
+
+<?php get_header(); 	?>
+
+
+<div id="primary" class="content-area small-12">
+	<main id="main" class="site-main" role="main">
+		<div class="row blog-container">
+			<div class="small-12 columns">
+				
+			
+				<div class="section-title row expanded">
+					<div class="small-12 medium-3 columns">
+						<h2>Blog</h2>
+					</div>
+				</div>
+
+				<div class="posts-container">
+					<div class="row blog-navigation medium-8 medium-centered show-for-small-only" style="text-align: center; margin-top:0; margin-bottom: 1rem;">
+						<div class="nav-next alignright"><?php previous_posts_link( '1' ); ?></div>
+						<div class="nav-previous alignleft"><?php next_posts_link( 'última página' ); ?></div>
+					</div>
+					
+					<div class="row small-up-1 medium-up-3">
+					<?php
+					// Start the loop.
+					while ( have_posts() ) : the_post();
+					?>
+
+						<div class="column column-block small-no-padding">
+							<div class="thumbnail">
+								<a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" class="portrait"></a>
+							</div>
+
+							<a href="<?php the_permalink(); ?>">
+								<h2 class="small-padding"><?php the_title(); ?></h2>
+							</a>
+							<p class="small-padding">
+								<?php echo substr(get_the_excerpt(), 0, 102).'...'; ?>
+							</p>
+						</div>
+
+					<?php
+					// End of the loop.
+					endwhile;
+					?>
+					</div>
+
+					<div class="row blog-navigation medium-8 medium-centered" style="text-align: center;">
+						<div class="nav-next alignright"><?php previous_posts_link( '1' ); ?></div>
+						<div class="nav-previous alignleft"><?php next_posts_link( 'Siguiente página >>' ); ?></div>
+					</div>
+
+				</div>
+			
+			</div>	
+				
+		</div><!-- .blog-container -->
+		<!--Formulario de contacto-->
+		
+	</main><!-- .site-main -->
+	<?php get_sidebar(); ?>
+</div><!-- .content-area -->
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>
+
